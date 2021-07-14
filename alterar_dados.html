@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  input[type=submit], #entrar, button{
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  a{
+      text-decoration: none;
+      color: white;
+    }
+
+  input[type=submit]:hover, #entrar:hover, button:hover{
+    background-color: #0a5237;
+}
+</style>
+<body>
+  <div>
+    <form action="update.php" method="POST" id="form">
+    <fieldset>
+    
+    <h1>Alterar dados</h1>
+      <hr>
+      <div class="row">
+        <div class="col-25">
+        <label for="user">Usuário</label>
+        </div>
+        <div class="col-75">
+        <input type="text" name="UpUsuario" id="user" placeholder="Usuario">
+        </div>
+        </div>
+     
+   
+       <div class="row">
+       <div class="col-25">
+       <label for="password">Senha</label>
+       </div>
+       <div class="col-75"><input type="password" name="Uppass" id="password" placeholder="Senha"></div>
+       </div>
+   
+   
+       <div class="row">
+         <div class="col-25">
+         <label for="confpassword">Confirme a senha</label>
+         </div>
+         <div class="col-75"><input type="password" name="Upconfpass" id="confpassword" placeholder="Confirmar senha"></div>
+         </div>
+   
+   
+       <div class="row">
+       <div class="col-25">
+       <label for="pais">País</label>
+       </div>
+       <div class="col-75">
+           <select name="UpPais" id="pais">
+               <option value="Brasil">Brasil</option>
+               <option value="Australia">Australia</option>
+               <option value="Canada">Canada</option>
+               <option value="Estados Unidos">Estados Unidos</option>
+               <option value="Japao">Japão</option>
+               <option value="Russia">Rússia</option>
+               <option value="China">China</option>
+               <option value="França">França</option>
+             </select>
+       </div>
+       </div>
+   
+   
+       <div class="row">
+       <div class="col-25">
+       <label for="txt">Texto</label>
+       </div>
+       <div class="col-75">
+       <textarea placeholder="Digite algo interessante!" name="Uptexto" id="txt" style="height:200px"></textarea>
+       </div>
+       </div>
+   
+   
+       <div class="row">
+       <div ><a href="conta.php" id="entrar">Sair</a></div>
+   
+       <input style="margin-top: 10px;" type="submit" value="Enviar">
+       </div>
+   
+    </fieldset>
+  </form>
+
+  </div>
+</body>
+</html>

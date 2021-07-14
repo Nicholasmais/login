@@ -1,0 +1,75 @@
+body{
+    background-color: rgba(87, 95, 95, 0.248);
+}
+
+fieldset{
+    background-color:rgba(240, 248, 255, 0.467);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+input[type=text],input[type=password], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=submit], #entrar{
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+
+  input[type=submit]:hover, #entrar:hover{
+    background-color: #0a5237;
+}
+
+  label {
+    display: inline-block;
+    padding: 10px 10px 0px 0px;
+   
+  }
+
+  .col-25{
+      float: left;
+      width: 25%;
+
+  }
+
+
+    a{
+      text-decoration: none;
+      
+    }
+    #entrar{
+      float: left;
+    }
+    input[type=submit]{
+      float: right;
+    }
+
+  .col-75{
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
