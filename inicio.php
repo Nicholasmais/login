@@ -25,7 +25,7 @@
    $_SESSION['user'] = $user;
    
    $pass = (mysqli_real_escape_string($link,$_POST['pass']));
-
+   $_SESSION['pass'] = $pass;
    $query = $link->prepare("select * from cadastro where usuario = ?");
    $query -> bind_param("s",$user);
    $query ->execute();

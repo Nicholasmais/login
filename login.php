@@ -40,6 +40,7 @@ text-align: center;
     $confpass = (mysqli_real_escape_string($link,$_POST["confpass"]));
     $pais = mysqli_real_escape_string($link,$_POST["Pais"]);
     $text = mysqli_real_escape_string($link,$_POST["texto"]);
+     
     
     $_SESSION['hashpass'] = $hashpass;
 
@@ -78,6 +79,13 @@ text-align: center;
         echo "<div class='row'>
         <div class='col-25'>
         <label for='pais'>Seu usuario deve ter mais de 4 digitos.</label>
+        </div>";
+    }
+
+    if (! move_uploaded_file($_POST['file'],"C:/Users/nicoe/Desktop/Estudo/codigos/PHP/login/dir")){
+        echo "<div class='row'>
+        <div class='col-25'>
+        <label for='pais'>Envie uma foto!.</label>
         </div>";
     }
 

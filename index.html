@@ -11,7 +11,7 @@
 <body>
 
 <div class="area">
-    <form method = 'POST' action="login.php" id='form'>
+    <form method = 'POST' action="login.php" id='form' enctype="multipart/form-data">
       
    <fieldset>
 
@@ -71,6 +71,11 @@
     </div>
     </div>
 
+    <div class='row'>
+      <div class="col-25"><label for="txt">Selecione uma imagem.</label></div>
+      
+      <div class="col-75"><input type="file" src="" accept=".jpg,.jpeg,.png" name="file"></div>
+    </div>
 
     <div class="row">
     <div ><a href="inicio.html" id="entrar">Entrar</a></div>

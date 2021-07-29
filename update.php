@@ -25,11 +25,23 @@
 
   $id=$resultado2['userid'];
  
-  $user = isset($_POST["UpUsuario"])?$_POST["UpUsuario"]:$_SESSION['user'];
-
+  if (!empty($_POST["UpUsuario"])){
+    $user = $_POST["UpUsuario"]; }
+  else{
+    $user = $_SESSION["user"];  }
   
-  $pass = isset($_POST["Uppass"])?$_POST['Uppass']:$_SESSION['pass'];
-  $confpass = isset($_POST["Upconfpass"])?$_POST['Upconfpass']:$_SESSION['pass'];
+
+  if (!empty($_POST["Uppass"])){
+    $pass = $_POST["Uppass"];  }
+  else{
+    $pass = $_SESSION["pass"]; }
+
+
+  if (!empty($_POST["Upconfpass"])){
+    $confpass = $_POST["Upconfpass"];  }
+  else{
+    $confpass = $_SESSION['pass'];}
+
 
   $pais = isset($_POST["UpPais"])?$_POST['UpPais']:$_SESSION['Pais'];
 
@@ -38,18 +50,32 @@
   $stmt = $link->query("SELECT usuario FROM cadastro WHERE usuario='$user'");
 
   if ($pass != $confpass){
-      echo "<div class='row'>
-      <div class='col-25'>
-      <label for='pais'>As senhas não batem!</label>
-      </div>";
+    echo "<div class='row'>
+    <div class='col-25'>
+    <label for='pais'>As senhas não batem!</label>
+    </div>";
   }
 
-  elseif($stmt->num_rows != 0){
+  elseif($stmt->num_rows > 1){
       echo "<div class='row'>
       <div class='col-25'>
       <label for='pais'>Usuário já cadastrado!</label>
       </div>";    }
 
+      elseif (strlen($pass) < 8){
+        echo "<div class='row'>
+        <div class='col-25'>
+        <label for='pais'>Sua senha deve ter no mínimo 8 digitos. </label>
+        </div>";
+    }
+
+    elseif (strlen($user) < 5){
+        echo "<div class='row'>
+        <div class='col-25'>
+        <label for='pais'>Seu usuario deve ter mais de 4 digitos.</label>
+        </div>";
+    }
+      
   else{
     $hashpass = password_hash($pass, PASSWORD_DEFAULT);
     $stmt = $link->prepare( "UPDATE cadastro SET usuario = ?, senha = ?, pais = ?, texto = ? WHERE userid = ?;");
@@ -59,7 +85,7 @@
 
     if($stmt->execute()){
       echo "<div class='mensagem'>
-      Dados salvos com sucesso!
+      Dados salvos com sucesso! $user $pass
       </div>";
       $stmt->close();
     } else{
